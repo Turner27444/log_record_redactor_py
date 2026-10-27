@@ -24,3 +24,10 @@ The trade-off: regex-based pattern matching is fast and dependency-free, but it 
 - `record.args` can be a tuple or a dict; both are handled. Non-string args are passed through untouched.
 - If `record.msg` is not a string (some libraries pass objects), it is left as-is.
 - The filter catches its own exceptions and always returns `True`, so a redaction error never breaks the logging pipeline.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
