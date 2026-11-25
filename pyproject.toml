@@ -1,6 +1,6 @@
 [project]
 name = "log-record-redactor-py"
-version = "0.1.3"
+version = "0.1.4"
 description = "logging.Filter that redacts credit-card and Social Security numbers from log messages and arguments"
 requires-python = ">=3.10"
 dependencies = []
